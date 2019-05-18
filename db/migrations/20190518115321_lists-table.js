@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     t.string('list_name', 256);
     t.boolean('completed');
     t.decimal('total_price');
+    t.timestamps(true, true);
   })
 };
 
