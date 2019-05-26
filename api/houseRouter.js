@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const db = require('../db/helpers/houseHelpers');
+const restricted = require('./auth/restricted')
+
+router.use(restricted);
 
 router.get('/', (req, res) => {
   db.getHouses()
