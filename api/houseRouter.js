@@ -7,6 +7,12 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({message: 'Could not retrieve houses at this time', err}))
 });
 
+router.get('/:id', (req, res) => {
+  db.getHouse(req.params.id)
+    .then(house => res.status(200).json(house))
+    .catch(err => res.status(500).json({message: 'Could not retrieve house at this time', err}))
+});
+
 router.post('/', (req, res) => {
   if(!req.body.house_name) {
     res.status(400).json({message: 'Make sure you provide house_name'});
