@@ -1,26 +1,26 @@
 const db = require('../dbConfig');
 
 module.exports = {
-  add,
-  update,
-  remove,
-  getAll,
+  addHouse,
+  updateHouse,
+  removeHouse,
+  getHouses,
   getHouse
 }
 
-function add(house) {
+function addHouse(house) {
   return db('house').insert(house);
 }
 
-function update(id, content) {
+function updateHouse(id, content) {
   return db('house').where({id}).update(content);
 }
 
-function remove(id) {
+function removeHouse(id) {
   return db('house').where({id}).del();
 }
 
-function getAll() {
+function getHouses() {
   return db('house');
 }
 

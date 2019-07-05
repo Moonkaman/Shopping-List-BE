@@ -15,6 +15,12 @@ exports.up = function(knex, Promise) {
     .references('id')
     .inTable('items')
     .onDelete('CASCADE');
+
+    t.integer('quantity').defaultTo(1);
+
+    t.boolean('gotten').defaultTo(false);
+
+    t.decimal('price').defaultTo(0.00);
   });
 };
 
